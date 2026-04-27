@@ -20086,7 +20086,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _message = require("./Message");
 var _chatAreaCss = require("./ChatArea.css");
 var _s = $RefreshSig$();
-const API_URL = "http://localhost:1000/first";
+const API_URL = "https://aibot-xre3.onrender.com/first";
 function ChatArea({ activeId, sessions, onUpdate }) {
     _s();
     const [input, setInput] = (0, _react.useState)("");
