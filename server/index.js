@@ -7,7 +7,7 @@ const cors = require("cors");
 
 app.use(express.json());
 
-const allowedOrigins = ["https://earnest-twilight-9dab59.netlify.app"];
+const allowedOrigins = ["https://ai-bot-pyeh.vercel.app"];
 
 app.use(cors({
   origin: (origin, callback) => {
