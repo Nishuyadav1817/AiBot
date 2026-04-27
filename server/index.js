@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-
+require("dotenv").config();
 const main = require("./Ai");
 const DataBase = require("./db");
 const cors = require("cors");
