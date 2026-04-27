@@ -28,12 +28,9 @@ app.use(cors({
 
 // API
 app.post("/first", async (req, res) => {
-const { msg, id } = req.body;
-
-  res.setHeader("Content-Type", "text/plain; charset=utf-8");
-  res.setHeader("Transfer-Encoding", "chunked");
-
   const chatHistory = [];
+
+  const { msg, id } = req.body;
 
   if (!chatHistory[id]) {
     chatHistory[id] = [];
@@ -46,24 +43,12 @@ const { msg, id } = req.body;
     { role: "user", parts: [{ text: msg }] }
   ];
 
-  // IMPORTANT: assume your AI supports streaming
-  const stream = await main(promptmessage, { stream: true });
-
-  let fullText = "";
-
-  for await (const chunk of stream) {
-    const text = chunk.text || "";
-
-    fullText += text;
-
-    // send chunk to frontend immediately
-    res.write(text);
-  }
+  const answer = await main(promptmessage);
 
   history.push({ role: "user", parts: [{ text: msg }] });
-  history.push({ role: "model", parts: [{ text: fullText }] });
+  history.push({ role: "model", parts: [{ text: answer }] });
 
-  res.end();
+  res.send( answer );
 });
 
 // Server
