@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Message, TypingIndicator } from "./Message";
 import "./ChatArea.css";
 
-const API_URL = "https://aibot-xre3.onrender.com/first";
+const API_URL = "https://ai-bot-gamma-six.vercel.app/first";
 
 export default function ChatArea({ activeId, sessions, onUpdate }) {
   const [input, setInput]     = useState("");
