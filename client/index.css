@@ -1,0 +1,93 @@
+/* ═══════════════════════════════════════
+   index.css — Light Theme Version
+   ═══════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Palette (Light Mode) */
+  --bg:         #f7f8fc;
+  --surface:    #ffffff;
+  --surface2:   #f1f3f9;
+  --border:     #e2e6f0;
+  --border2:    #d4d9e6;
+
+  --accent:     #7c9cff; /* soft blue */
+  --accent-dim: rgba(124, 156, 255, 0.1);
+  --accent-glow:rgba(124, 156, 255, 0.25);
+
+  --teal:       #3cc8a0;
+  --teal-dim:   rgba(60, 200, 160, 0.1);
+
+  --red:        #ff6b6b;
+
+  --text:       #1f2430;
+  --muted:      #6b7280;
+  --muted2:     #9aa1b5;
+
+  /* Typography */
+  --ff-display: 'Fraunces', Georgia, serif;
+  --ff-mono:    'DM Mono', 'Courier New', monospace;
+
+  /* Layout */
+  --sidebar-w:  252px;
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+
+  /* Transitions */
+  --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--ff-mono);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border2) transparent;
+}
+
+*::-webkit-scrollbar        { width: 6px; }
+*::-webkit-scrollbar-track  { background: transparent; }
+*::-webkit-scrollbar-thumb  { 
+  background: var(--border2); 
+  border-radius: 4px; 
+}
+
+/* Inputs & Buttons */
+button { 
+  cursor: pointer; 
+  font-family: var(--ff-mono);
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: 0.2s var(--ease);
+}
+
+button:hover {
+  background: #6b8cff;
+}
+
+textarea { 
+  font-family: var(--ff-mono);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px;
+  color: var(--text);
+}
