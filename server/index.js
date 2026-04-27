@@ -7,17 +7,23 @@ const cors = require("cors");
 
 app.use(express.json());
 
-const allowedOrigins = ["https://ai-bot-pyeh.vercel.app"];
-
+const allowedOrigins = ["https://ai-bot-pyeh.vercel.app",
+    "http://localhost:3000",
+  "http://localhost:5173"
+];
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
+  origin: function (origin, callback) {
+    // allow requests with no origin (like Postman)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
     } else {
-      callback(new Error("Not allowed by CORS"));
+      console.log("Blocked by CORS:", origin);
+      return callback(new Error("Not allowed by CORS"));
     }
   },
-  credentials: true,
+  credentials: true
 }));
 
 // API
