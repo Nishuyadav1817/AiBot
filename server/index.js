@@ -8,7 +8,7 @@ const cors = require("cors");
 app.use(express.json());
 
 const allowedOrigins = ["https://ai-bot-pyeh.vercel.app",
-    "http://localhost:3000",
+    "https://ceetcode-ziw5.vercel.app",
   "http://localhost:5173"
 ];
 app.use(cors({
